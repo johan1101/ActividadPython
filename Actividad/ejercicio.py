@@ -45,33 +45,72 @@ def opcionesLecturas():
 # Se llama al metodo de bienvenida
 bienvenida()
 
+registroLecturas = []
+
+while True:
+
 # Se llama al metodo de MenuOpciones para listar las opciones disponibles
-menuOpciones()
+    menuOpciones()
 
-opcion = int(input())
+    opcion = int(input())
 
 
-# Condicional para la funcionalidad del programa
-if opcion == 1:
-    print("----------------------------------------")
-    print("Usted ha entrado al area de lecturas de energía")
-    print("----------------------------------------")
-    print("")
+    # Condicional para la funcionalidad del programa
+    if opcion == 1:
+        print("----------------------------------------")
+        print("Usted ha entrado al area de lecturas de energía")
+        print("----------------------------------------")
+        print("")
 
-    opcionesLecturas()
-
-    segundaOpcion = int(input());
-    print("")
-    
-    if segundaOpcion == 1:
         while True:
-            try:
-                nuevaLectura = float(input("Ingrese una nueva lectura en voltios: "))
-                break
-            except ValueError:
-                print("Por favor, ingrese solo números.")
+            opcionesLecturas()
 
-print(f"Ha ingresado la lectura: {nuevaLectura} V")
+            segundaOpcion = int(input());
+            print("")
+            
+            if segundaOpcion == 1:
+                while True:
+                    try:
+                        nuevaLectura = float(input("Ingrese una nueva lectura en voltios: "))
+                        registroLecturas.append(nuevaLectura)
+                        break
+                    except ValueError:
+                        print("----------------------------------------")
+                        print("Por favor, ingrese solo números.")
+                        print("----------------------------------------")
+
+                print("La lectura se ha sido registrada con exito")
+
+            elif segundaOpcion == 2:
+                suma = 0.0;
+                for lectura in registroLecturas:
+                    suma = suma + lectura
+
+                # Obtener el tamaño de la lista
+                tamano = len(registroLecturas)
+
+                if tamano == 0:
+                    print("----------------------------------------")
+                    print("No hay lecturas registradas para obtener el promedio")
+                    print("----------------------------------------")
+                else:
+                    promedio = (suma / tamano)
+                    print("----------------------------------------")
+                    print(f"El promedio de lecturas es de: {promedio} V")
+                    print("----------------------------------------")
+
+
+            elif segundaOpcion == 6:
+                print("----------------------------------------")
+                print("Ha salido del area de lecturas")
+                print("----------------------------------------")
+                break
+
+    elif opcion == 4:
+        print("----------------------------------------")
+        print("El programa ha finalizado, vuelva pronto :)")
+        print("----------------------------------------")
+        break
 
 
 
