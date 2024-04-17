@@ -180,6 +180,56 @@ def areaLecturasEnergia():
             break
 
 
+# Metodo para definir si un número es primo.
+def numeroPrimo(numero):
+    if numero < 2:
+        return False
+    for i in range(2, int(numero ** 0.5) + 1):
+        if numero % i == 0:
+            return False
+    return True
+
+
+# Metodo para sumar los divisores primos de un número
+def sumaDivPrimos(numero):
+    sumatoria = 0
+    for i in range(1, numero + 1):
+        if numero % i == 0 and numeroPrimo(i):
+            sumatoria += i
+    return sumatoria
+
+
+# Funcion para sumar los divisores primos de un número.
+def divisoresPrimos():
+    print("----------------------------------------")
+    print("Ingrese un número")
+    print("----------------------------------------")
+    print("")
+    while True:
+        try:
+            numero = int(input())
+            break
+        except ValueError:
+            print("----------------------------------------")
+            print("Por favor, ingrese un valor valido")
+            print("Vuelva a ingresar un número")
+            print("----------------------------------------")
+            print("")
+
+    sumaTotal = sumaDivPrimos(numero)
+
+    if sumaTotal == 0:
+        print("----------------------------------------")
+        print("El número ingresado no tiene divisores primos")
+        print("----------------------------------------")
+    else:
+        print("----------------------------------------")
+        print(f"La suma de los divisores primos del número ingresado es de: {sumaTotal}")
+        print("----------------------------------------")
+
+
+
+
 
 
 
@@ -217,9 +267,11 @@ while True:
         areaLecturasEnergia()
 
     elif opcion == 2:
-        areaLecturasEnergia()
+
+        divisoresPrimos()
 
     elif opcion == 4:
+        
         salirPrograma()
         break
 
