@@ -228,15 +228,49 @@ def divisoresPrimos():
         print("----------------------------------------")
 
 
+# Funcion para sumar los 
+def sumaDiv(n):
+    suma = 0
+    for i in range(1, n):
+        if n % i == 0:
+            suma += i
+    return suma
 
+def numeroCurioso(num):
+    # Devuelve los números curiosos
+    suma = sumaDiv(num)
+    return suma == num
 
+def mostarNumCuriosos(n):
+    numerosCuriosos = []
+    i = 1
+    while len(numerosCuriosos) < n:
+        if numeroCurioso(i):
+            numerosCuriosos.append(i)
+        i += 1
+    return numerosCuriosos
 
-
-
-
-
-
-
+def numerosCuriosos():
+    print("---------------------------------------------------------------------")
+    print("Ingrese el valor de números curiosos que desea conocer")
+    print("---------------------------------------------------------------------")
+    print("")
+    while True:
+        try:
+            n = int(input())
+            break
+        except ValueError:
+            print("---------------------------------------------------------------------")
+            print("Por favor ingrese un valor valido")
+            print("---------------------------------------------------------------------")
+            print("")
+    resultado = []
+    print("---------------------------------------------------------------------")
+    print("El calculo puede tardar unos minutos, por favor espere")
+    print("---------------------------------------------------------------------")
+    print("")
+    resultado = mostarNumCuriosos(n)
+    print(f"Los primeros {n} números curiosos son: {resultado}")
 
 # ------------------------------------------------------------
 
@@ -270,8 +304,12 @@ while True:
 
         divisoresPrimos()
 
+    elif opcion == 3:
+
+        numerosCuriosos()
+
     elif opcion == 4:
-        
+
         salirPrograma()
         break
 
@@ -279,11 +317,5 @@ while True:
         print("----------------------------------------")
         print("Ingrese una opción valida")
         print("----------------------------------------")
-
-
-
-
-
-
 
 # ------------------------------------------------------------
