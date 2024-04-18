@@ -1,3 +1,5 @@
+# Integrantes: Johan Ordoñez y Esneyder Ibarra
+
 # En esta area se encuentran todas las funciones del programa
 # ------------------------------------------------------------
 
@@ -319,3 +321,5 @@ while True:
         print("----------------------------------------")
 
 # ------------------------------------------------------------
+
+# Integrantes: Johan Ordoñez y Esneyder Ibarra
